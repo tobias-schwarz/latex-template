@@ -1,0 +1,32 @@
+\chapter*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+
+Ein Abkürzungsverzeichnis ist optional. Das Paket \verb|acronym| kann weit mehr, als hier gezeigt.\footnote{siehe \url{http://ctan.org/pkg/acronym}}
+Beachten Sie allerdings, dass Sie die Einträge selbst in sortierter Reihenfolge angeben müssen.
+
+\begin{acronym}[DHBW] 
+% Argument definiert die Breite der ersten Spalte anhand des längsten vorkommenden Eintrags
+\acro{CRM}{Customer Relationship Management}
+\acro{DHBW}{Duale Hochschule Baden-Württemberg}
+\acro{IEEE}{Institute of Electrical and Electronics Engineers}
+\acro{ITIL}{IT Infrastructure Library}
+\acro{RoI}{Return-On-Invest}
+\acro{UCS}{Universal Character Set}
+\acro{UTF-8}{8-Bit UCS Transformation Format} 
+\end{acronym}
+
+\vspace{2em}
+{\footnotesize
+\textbf{Ergänzende Bemerkung:}
+Eine im Text verwendete Abkürzung sollte bei ihrer ersten Verwendung erklärt werden. Falls Sie sich nicht selbst darum kümmern möchten, kann das das Paket \verb|acronym| übernehmen und auch automatisch Links zum Abkürzungsverzeichnis hinzufügen. Dazu ist an allen Stellen, an denen die Abkürzung vorkommt, \verb|\ac{ITIL}| zu schreiben. 
+
+Das Ergebnis sieht wie folgt aus: 
+\begin{itemize}
+\item erstmalige Verwendung von \verb|\ac{ITIL}| ergibt: \ac{ITIL},
+\item weitere Verwendung von \verb|\ac{ITIL}| ergibt: \ac{ITIL}
+\end{itemize}
+Wo benötigt, kann man mit dem Befehl \verb|\acl{ITIL}| wieder die Langfassung ausgeben lassen: \acl{ITIL}.
+
+Falls man die Abkürzungen durchgängig so handhabt, kann man durch Paket-Optionen (in \verb|_dhbw_praeambel.tex|)
+erreichen, dass im Abkürzungsverzeichnis nur die tatsächlich verwendeten Quellen aufgeführt werden (Option: \verb|printonlyused|) und zu jedem Eintrag die Seite der ersten Verwendung angegeben wird (Option: \verb|withpage|).
+}
