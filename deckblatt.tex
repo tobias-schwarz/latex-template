@@ -1,17 +1,17 @@
-% HIER EDITIEREN: 
-% Typ der Arbeit (für Deckblatt und ehrenwörtliche Erklärung)
-% - bitte Zutreffendes auswählen
-%\newcommand{\typMeinerArbeit}{1. Projektarbeit} 
-%\newcommand{\typMeinerArbeit}{2. Projektarbeit} 
-%\newcommand{\typMeinerArbeit}{Seminararbeit} 
-\newcommand{\typMeinerArbeit}{Bachelorarbeit} 
+% Typ der Arbeit (für Deckblatt und ehrenwörtliche Erklärung) - bitte Zutreffendes auswählen
+% \newcommand{\typMeinerArbeit}{1. Projektarbeit} 
+% \newcommand{\typMeinerArbeit}{2. Projektarbeit} 
+% \newcommand{\typMeinerArbeit}{Seminararbeit} 
+% \newcommand{\typMeinerArbeit}{Bachelorarbeit} 
+\newcommand{\typMeinerArbeit}{Benutzerdefinierter Typ}
 
 % Thema der Arbeit (für ehrenwörtliche Erklärung, ohne Umbrüche)
-% HIER EDITIEREN: 
 \newcommand{\themaMeinerArbeit}{Mein Titel}
 
+% Ggf. Untertitel der Arbeit (falls dies nicht benötigt wird, das zweite Klammerpaar leer lassen, nicht das Kommando löschen!)
+\newcommand{\unterThemaMeinerArbeit}{Untertitel}
+
 % Vorname, Name der Autorin/des Autors (für Titelseite und Metadaten)
-% HIER EDITIEREN:
 \newcommand{\meinName}{Vorname Nachname}
 
 \thispagestyle{empty}
@@ -22,34 +22,33 @@
 
 % HIER EDITIEREN: Titel der Arbeit
 {\sffamily
-\LARGE  
-% \Large  % bei sehr langen Titeln ggf. etwas kleinere Schriftart wählen
-\textbf{Titel der Arbeit}
-
-\bigskip
-\textbf{ggf. etwas länger}
+    \LARGE  
+    \textbf{\themaMeinerArbeit}
+    \bigskip
+    \textbf{\unterThemaMeinerArbeit}
 }
-
 
 \vspace{15mm}
 
-% Typ wird automatisch eingefügt (oben festlegen)
+% Typ der Arbeit
 {\Large \typMeinerArbeit}
 
 \vspace{1cm}
 
-% HIER ggf. EDITIEREN
+% Datum festlegen
 vorgelegt am \today 
 
 \vspace{15mm}
 
+% Fakultät festlegen
 Fakultät Wirtschaft
 \medskip
 
+% Studiengang festlegen
 Studiengang Wirtschaftsinformatik
 \medskip
 
-% HIER EDITIEREN: Kurs eintragen
+% Kurs festlegen
 Kurs ... 
 
 \vspace{10mm}
@@ -58,7 +57,7 @@ von
 
 \vspace{10mm}
 
-% Vorname und Name wird automatisch eingefügt (oben festlegen) 
+% Autor/in/en/innen festlegen
 {\large\textsc{\meinName}}
 
 \vspace{10mm}
@@ -68,7 +67,7 @@ von
 
 % HIER EDITIEREN: Name des Unternehmens, Name der Betreuerin/des Betreuers
 \begin{tabular}{ll}
-Betreuer in der Ausbildungsstätte: & DHBW Stuttgart: \\
+Betreuer*in in der Ausbildungsstätte: & DHBW Stuttgart: \\
 \hspace{0.4\linewidth} & \\
 $\langle$ Name des Unternehmens $\rangle$ & $\langle$ Titel, Vorname und Nachname $\rangle$ \\
 $\langle$ Titel, Vorname und Nachname der Betreuerin $\rangle$ 

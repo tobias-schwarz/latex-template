@@ -24,21 +24,19 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 # Notwendige Anpassungen
 
 ### master.tex
-- Einbinden der eigenen Literaturdatenbank (Datei: tables/literaturverzeichnis.bib ersetzen)
-- Eigene Gespräche müssen manuell in das Gesprächsverzeichnis (Datei: tables/gespraechsverzeichnis.bib bearbeiten) eingefügt werden. Hierzu kann der Mustereintrag in der Datei als Vorlage verwendet werden
-- (Optional) Einbinden eines Abstracts. Hierzu müssen die zwei Zeilen unter dem Kommentar "Einbinden eines Abstracts (optional)" einkommentiert werden. Anschließend kann das Abstract in die bereits vorbereitete Datei (Datei: main/abstract.tex bearbeiten) eingefügt werden.
-- Eigene Abkürzungen müssen manuell dem Abkürzungsverzeichnis (Datei: tables/abkuerzungen.tex) hinzugefügt werden. Hier kann ebenfalls nach den Beispieleinträgen vorgegangen werden.
-- Die Einträge im Inhaltsverzeichnis, Abbildungsverzeichnis und Tabellenverzeichnis werden automatisch generiert. Hier muss jedoch das Format aus dem cheat_sheet, bei Tabellen und Bildern, eingehalten werden. Sollten diese Verzeichnisse nicht benötigt werden muss der Codeblock, wo diese definiert werden, komplett auskommentiert/ entfernt werden.
-- Im nachfolgenden können nun eigene Subfiles für den eigentlichen Inhalt, unter den jeweiligen Abschnitten eingefügt werden. Hier kann sich am cheat_sheet orientiert werden.
-- Der Anhang ist bereits vorbereitet. Hier können dann eigene Inhalten nach dem Muster in der Datei (Datei: anhang/anhang.tex bearbeiten) hinzugefügt werden.
-- Zuletzt muss noch die Zeile für das korrekte Quellenverzeichnis (Mit oder ohne Gesprächsverzeichnis) auskommentiert werden.
+- Einbinden der eigenen Literaturdatenbank (Datei: `bibliography/bibliography.bib` ersetzen)
+- (Optional) Einbinden eines Abstracts. Hierzu müssen die zwei Zeilen unter dem Kommentar "Einbinden eines Abstracts (optional)" einkommentiert werden. Anschließend kann das Abstract in die bereits vorbereitete Datei (Datei: `abstract.tex` bearbeiten) eingefügt werden.
+- Eigene Abkürzungen müssen manuell dem Abkürzungsverzeichnis (Datei: `tables/abkuerzungen.tex`) hinzugefügt werden. Hier kann ebenfalls nach den Beispieleinträgen vorgegangen werden.
+- Die Einträge im Inhaltsverzeichnis, Abbildungsverzeichnis und Tabellenverzeichnis werden automatisch generiert. Hier muss jedoch das Format aus der `cheat_sheet.tex` bei Tabellen und Bildern eingehalten werden. Sollten diese Verzeichnisse nicht benötigt werden muss der Codeblock, wo diese definiert werden, komplett auskommentiert/ entfernt werden.
+- Im nachfolgenden können nun eigene Subfiles für den eigentlichen Inhalt eingefügt werden. Hier kann sich an der `cheat_sheet.tex` und an den Beispielhaften Dateien im Ordner `examples` orientiert werden.
+- Der Anhang ist bereits vorbereitet. Hier können dann eigene Inhalten nach dem Muster in der Datei (Datei: `appendix/appendix.tex` bearbeiten) hinzugefügt werden.
+- Es sollte zur Abgabe darauf geachtet werden dass die `cheat_sheet.tex`, Dateien auf dem Ordner `examples`, die `release_notes.tex` und ggf. weitere Beispielhafte Inhalte auskommentiert oder gelöscht werden.
 
-### dhbw_vorlagen/deckblatt.tex
+### deckblatt.tex
 - Hier muss zunächst der Typ der Arbeit ausgewählt werden. Dazu muss einer der voreingestellten Typen auskommentiert werden oder es kann ein benutzerdefinierter Typ festgelegt werden
-- Es müssen außerdem ein Thema und ein Unterthema eingetragen werden. Sollte kein Unterthema benötigt werden, muss die Bezeichnung für das Unterthema leer gelassen werden (Die Zeile darf nicht komplett gelöscht werden, weil hier dann weitere Anpassungen nötig wären!)
-- Ein Autor muss ebenfalls eingetragen werden
+- Es müssen außerdem ein Thema und ein Unterthema eingetragen werden. Sollte kein Unterthema benötigt werden, muss die Bezeichnung für das Unterthema leer gelassen werden (Die Zeile darf nicht komplett gelöscht werden, weil hier Abhängigkeiten bestehen)
+- Ein/e Autor*in muss ebenfalls eingetragen werden
 - Unter Umständen muss das Datum der Abgabe geändert werden (Standardmäßig wird das aktuelle Datum verwendet)
-- Der Kurs, Name der/des Betreuers/in und der/des Studiengangsleiters/in müssen angepasst werden
-- Sollte ein Sperrvermerk benötigt werden, müssen die entsprechenden Zeilen einfach auskommentiert werden
-- Unten werden noch die Metadaten festgelegt. Hier ist im Normalfall keine Anpassung notwendig. Hier sollte, je nach Version, jedoch das Datum des Copyrights überprüft werden.
+- Der Kurs, Name der/des Betreuers/in und der/des Studiengangsleiters/in müssen angepasst werden.
+- Sollte ein Sperrvermerk benötigt werden, müssen die entsprechenden Zeilen einfach auskommentiert werden.
 
