@@ -1,3 +1,4 @@
+# Latex
 *.app
 *.aux
 *.bbl
@@ -14,3 +15,6 @@
 *.synctex.gz
 *.synctex(busy)
 *.toc
+
+# Mac
+.DS_Store
