@@ -1,0 +1,97 @@
+\chapter{Cheat Sheet}\label{chapter:cheat_sheet}
+
+Hier findet Ihr einen Überblick über die wichtigsten \LaTeX\ Befehle.
+
+\textbf{Fetter Text} \\
+\textit{Kursiver Text} \\
+\underline{Unterstrichener Text} \\
+
+\section{Einfügen von Aufzählungen}\label{section:aufzaehlungen}
+
+    \begin{itemize}
+        \item Erstes Element
+        \item Zweites Element
+        \item Drittes Element
+    \end{itemize}
+
+\section{Einfügen von Bildern}\label{section:bilder}
+
+    % Einfügen einer Grafik
+    \begin{figure}[htb]
+        % Zentrierung
+        \centering
+        % Einfügen der Datei, mit angepasster Höhe
+        \includegraphics[height=5cm]{graphics/dhbw.png}
+        % Titel und Label der Grafik
+        \caption[Logo der DHBW]{Logo der DHBW.\footnotemark}
+        \label{abb:DHBWLogo}
+    \end{figure}
+    \footnotetext{Logo der DHBW}
+
+\section{Einfügen von Tabellen}\label{section:tabellen}
+
+% Einfügen einer Tabelle
+\begin{table}[htb]
+    % Zentrierung
+    \centering
+    % Beginn der eigentlichen Tabelle
+    % Im zweiten Klammerpaar, Definition des Tabellendesign
+    % Ausrichtung (l, c, r) und vertikale Trennung (|)
+    \begin{tabular}{lcr}
+        % Beginn einer neuen Spalte mit & und einer neuen Zeile mit \\
+        links & Mitte & rechts \\
+        % Einfügen einer horizontalen Linie
+        \hline
+        Muster & Muster & Muster \\
+    \end{tabular}
+    % Titel und Label der Tabelle
+    \caption{Kleine Beispiel-Tabelle.}
+    \label{tab:BeispielTabelleKlein}
+\end{table}
+
+\section{Einfügen von Source Code}\label{section:source_code}
+
+% Definition, welche Programmiersprache verwendet wird
+\lstset{language=Java}
+
+    In \LaTeX\ kann auch Source Code referenziert werden.
+
+    Dieser kann direkt in das Dokument geschrieben werden:
+
+    % Beginn des Code Blocks
+    \begin{lstlisting}
+        if(1 > 0) {
+        System.out.println("OK"); 
+        } else {
+        System.out.println("merkwuerdig");
+        }
+    \end{lstlisting}
+
+\section{Einfügen von Abkürzungen}\label{section:abkuerzungen}
+
+Beim ersten mal wird die Abkürzung ausgeschrieben: \ac{DHBW}
+
+Bei allen weiteren Verwendungen wird nur die Abkürzung mit Link dargestellt: \ac{DHBW}
+
+\section{Einfügen von Fußnoten und Zitaten}\label{section:zitate}
+
+Fußnoten können auf verschiedene Weisen in \LaTeX eingefügt werden.
+
+Hier wird nur eine beispielhafte Variante gezeigt!
+
+    \begin{itemize}
+        \item 'Direktes Zitate'\footnote{\cite[S. 114ff.]{Mayring2002}}
+        \item Indirektes Zitate\footnote{Vgl. \cite[S. 114ff.]{Mayring2002}}
+        \item Sekundäres indirektes Zitat\footnote{Vgl. \cite[S. 114ff.]{Mayring2002} nach \cite{Endres}}
+    \end{itemize}
+
+\section{Einfügen von Referenzen}\label{section:referenzen}
+
+Auf Inhalte kann referenziert werden. Hierzu müssen diese Inhalte nur mit einem Label versehen werden.
+
+    \begin{itemize}
+        \item Bilder\ref{abb:DHBWLogo}
+        \item Kapitel\ref{chapter:cheat_sheet}
+        \item Abschnitte\ref{section:bilder}
+    \end{itemize}
+
