@@ -19,13 +19,13 @@ echo Starting python script to count pages...
 python3 .internals/scripts/utils/getPages.py
 
 echo Reading result...
-inputPages="pages.txt"
+inputPages=".internals/scripts/utils/pages.txt"
 while IFS= read -r line
 do
     page=$line
 done < "$inputPages"
 
-inputProg="progress.txt"
+inputProg=".internals/scripts/utils/progress.txt"
 while IFS= read -r line
 do
     progress=$line
