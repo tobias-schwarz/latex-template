@@ -1,7 +1,7 @@
-![Quellen](https://img.shields.io/static/v1?label=Quellen&message=19&color=red&logo=adobe-acrobat-reader&style=for-the-badge)
-![Seiten](https://img.shields.io/static/v1?label=Seiten&message=18&color=blue&logo=LibreOffice&style=for-the-badge)
-![Progress](https://img.shields.io/static/v1?label=Progress&message=22%-30%&color=yellow&logo=LibreOffice&style=for-the-badge)
-![Last update](https://img.shields.io/static/v1?label=Last%20Update&message=Tue%20Feb%2025%2009:29:05%20UTC%202020&color=green&logo=Clockify&style=for-the-badge)
+![Quellen](https://img.shields.io/static/v1?label=Quellen&message=1&color=red&logo=adobe-acrobat-reader&style=for-the-badge)
+![Seiten](https://img.shields.io/static/v1?label=Seiten&message=10&color=blue&logo=LibreOffice&style=for-the-badge)
+![Progress](https://img.shields.io/static/v1?label=Progress&message=12%-16%&color=yellow&logo=LibreOffice&style=for-the-badge)
+![Last update](https://img.shields.io/static/v1?label=Last%20Update&message=Tue%20Feb%2025%2010:14:01%20UTC%202020&color=green&logo=Clockify&style=for-the-badge)
 
 # LaTeX Vorlage
 
