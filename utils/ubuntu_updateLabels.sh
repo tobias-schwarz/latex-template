@@ -1,6 +1,9 @@
 echo Moving to literatur...
+echo `ls`
 cd ..
+echo `ls`
 cd bibliography
+echo `ls`
 cd literatur
 
 echo Counting files...
@@ -9,15 +12,16 @@ NO_WHITESPACE="$(echo -e "${NOFFILES}" | tr -d '[:space:]')"
 
 echo $NO_WHITESPACE files found. Moving to README...
 cd ..
+echo `ls`
 cd ..
-
+echo `ls`
 echo Replacing label...
 sed -i "s/^!\[Quellen.*/![Quellen](https:\/\/img.shields.io\/static\/v1\?label=Quellen\&message=${NO_WHITESPACE}\&color=red\&logo=adobe-acrobat-reader\&style=for-the-badge)/" README.md
 
 echo Done
 
 cd utils
-
+echo `ls`
 echo Starting python script to count pages...
 python3 getPages.py
 
@@ -36,6 +40,8 @@ done < "$inputProg"
 
 echo Replacing label with $page...
 cd ..
+echo `ls`
+
 sed -i "s/^!\[Seiten.*/![Seiten](https:\/\/img.shields.io\/static\/v1\?label=Seiten\&message=${page}\&color=blue\&logo=LibreOffice\&style=for-the-badge)/" README.md
 
 sed -i "s/^!\[Progress.*/![Progress](https:\/\/img.shields.io\/static\/v1\?label=Progress\&message=${progress}\&color=yellow\&logo=LibreOffice\&style=for-the-badge)/" README.md
