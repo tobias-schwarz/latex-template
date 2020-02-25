@@ -1,3 +1,8 @@
+![Quellen](https://img.shields.io/static/v1?label=Quellen&message=19&color=red&logo=adobe-acrobat-reader&style=for-the-badge)
+![Seiten](https://img.shields.io/static/v1?label=Seiten&message=18&color=blue&logo=LibreOffice&style=for-the-badge)
+![Progress](https://img.shields.io/static/v1?label=Progress&message=22%-30%&color=yellow&logo=LibreOffice&style=for-the-badge)
+![Last update](https://img.shields.io/static/v1?label=Last%20Update&message=Tue%20Feb%2025%2009:29:05%20UTC%202020&color=green&logo=Clockify&style=for-the-badge)
+
 # LaTeX Vorlage
 
 LaTeX Template, nach den Anforderungen der DHBW Stuttgart, Fakultät Wirtschaft. 
@@ -25,6 +30,7 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 
 ### master.tex
 - Einbinden der eigenen Literaturdatenbank (Datei: `bibliography/bibliography.bib` ersetzen)
+- Alternativ können die Quellen manuel unter dem Verzeichnis `bibliography/literature` gepflegt werden.
 - (Optional) Einbinden eines Abstracts. Hierzu müssen die zwei Zeilen unter dem Kommentar "Einbinden eines Abstracts (optional)" einkommentiert werden. Anschließend kann das Abstract in die bereits vorbereitete Datei (Datei: `abstract.tex` bearbeiten) eingefügt werden.
 - Eigene Abkürzungen müssen manuell dem Abkürzungsverzeichnis (Datei: `tables/abkuerzungen.tex`) hinzugefügt werden. Hier kann ebenfalls nach den Beispieleinträgen vorgegangen werden.
 - Die Einträge im Inhaltsverzeichnis, Abbildungsverzeichnis und Tabellenverzeichnis werden automatisch generiert. Hier muss jedoch das Format aus der `cheat_sheet.tex` bei Tabellen und Bildern eingehalten werden. Sollten diese Verzeichnisse nicht benötigt werden muss der Codeblock, wo diese definiert werden, komplett auskommentiert/ entfernt werden.

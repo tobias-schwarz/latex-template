@@ -1,7 +1,7 @@
 echo Moving to literatur...
 cd ..
+cd bibliography
 cd literatur
-cd Docs
 
 echo Counting files...
 NOFFILES=`ls -1 | wc -l`
