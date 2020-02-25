@@ -4,7 +4,7 @@ cd ..
 echo `ls`
 cd bibliography
 echo `ls`
-cd literatur
+cd literature
 
 echo Counting files...
 NOFFILES=`ls -1 | wc -l`
