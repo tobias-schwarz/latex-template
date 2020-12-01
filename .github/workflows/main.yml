@@ -1,0 +1,17 @@
+name: Build LaTeX
+on: [ push ]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: dante-ev/latex-action@master
+        with:
+          root_file: master.tex
+      - name: Upload LaTeX Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: output
+          path: master.pdf
