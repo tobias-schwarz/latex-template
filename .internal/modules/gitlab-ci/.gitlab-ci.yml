@@ -1,0 +1,17 @@
+image: aergus/latex
+
+stages:
+  - build
+
+build:
+  stage: build
+
+  script:
+    - mkdir output
+    - shell_escape=t latexmk -pdf -jobname=./output/build master.tex;
+    - cp output/build.pdf master.pdf
+
+  artifacts:
+    paths:
+      - master.pdf
+
