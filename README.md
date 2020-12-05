@@ -29,7 +29,7 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 
 ### master.tex
 
-- Einbinden der eigenen Literaturdatenbank (Datei: `lib/bibliography/bibliography.bib` ersetzen)
+- Einbinden der eigenen Literaturdatenbank (Datei: `lib/bibliography.bib` ersetzen)
 - (Optional) Einbinden eines Abstracts. Hierzu müssen die zwei Zeilen unter dem Kommentar "Einbinden eines Abstracts (optional)" einkommentiert werden. Anschließend kann das Abstract in die bereits vorbereitete Datei (Datei: `src/abstract.tex` bearbeiten) eingefügt werden.
 - Eigene Abkürzungen müssen manuell dem Abkürzungsverzeichnis (Datei: `lib/tables/abkuerzungen.tex`) hinzugefügt werden. Hier kann ebenfalls nach den Beispieleinträgen vorgegangen werden.
 - Die Einträge im Inhaltsverzeichnis, Abbildungsverzeichnis und Tabellenverzeichnis werden automatisch generiert. Hier muss jedoch das Format aus der `examples/cheat_sheet.tex` bei Tabellen und Bildern eingehalten werden. Sollten diese Verzeichnisse nicht benötigt werden muss der Codeblock, wo diese definiert werden, komplett auskommentiert/ entfernt werden.

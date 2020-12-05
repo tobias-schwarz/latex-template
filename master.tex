@@ -3,10 +3,10 @@
 % \usepackage{showframe} % nur für Kontrolle der Ränder 
 
 %%% Präambel einbinden (mit Festlegungen gemäß DHBW-Vorgaben) %%%
-\input{.internal/template/_dhbw_praeambel.tex}
+\input{lib/template/_dhbw_praeambel.tex}
 
 %%% Name der eigenen Literatur-Datenbank %%%
-\bibliography{lib/bibliography/bibliography.bib}
+\bibliography{lib/bibliography.bib}
 
 \begin{document}
 
@@ -22,31 +22,31 @@
 
 \begin{spacing}{1}
 
-    %%% Inhaltsverzeichnis %%%
-    \tableofcontents
-    \clearpage
+  %%% Inhaltsverzeichnis %%%
+  \tableofcontents
+  \clearpage
 
-    %%% Abkürzungsverzeichnis %%%
-    \input{lib/tables/abkuerzungen.tex}
-    \clearpage
+  %%% Abkürzungsverzeichnis %%%
+  \input{lib/tables/abkuerzungen.tex}
+  \clearpage
 
-    \thispagestyle{kapitelkopfzeile}
+  \thispagestyle{kapitelkopfzeile}
 
-    %%% Abbildungsverzeichnis %%%
-    \listoffigures
-    \phantomsection
+  %%% Abbildungsverzeichnis %%%
+  \listoffigures
+  \phantomsection
 
-    %%% Einfügen des Abbildungsverzeichnisses in das Inhaltsverzeichnis %%%
-    \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-    \clearpage
+  %%% Einfügen des Abbildungsverzeichnisses in das Inhaltsverzeichnis %%%
+  \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+  \clearpage
 
-    %%% Tabellenverzeichnis %%%
-    \listoftables
-    \phantomsection
+  %%% Tabellenverzeichnis %%%
+  \listoftables
+  \phantomsection
 
-    %%% Einfügen des Tabellenverzeichnisses in das Inhaltsverzeichnis %%%
-    \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-    \cleardoublepage
+  %%% Einfügen des Tabellenverzeichnisses in das Inhaltsverzeichnis %%%
+  \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+  \cleardoublepage
 
 \end{spacing}
 
@@ -76,6 +76,6 @@
 \cleardoublepage
 
 %%% Erklärung %%%
-\input{.internal/template/_dhbw_erklaerung.tex}
+\input{lib/template/_dhbw_erklaerung.tex}
 
 \end{document}
