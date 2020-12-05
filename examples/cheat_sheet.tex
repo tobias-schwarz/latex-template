@@ -8,25 +8,25 @@ Hier findet Ihr einen Überblick über die wichtigsten \LaTeX\ Befehle.
 
 \section{Einfügen von Aufzählungen}\label{section:aufzaehlungen}
 
-    \begin{itemize}
-        \item Erstes Element
-        \item Zweites Element
-        \item Drittes Element
-    \end{itemize}
+\begin{itemize}
+    \item Erstes Element
+    \item Zweites Element
+    \item Drittes Element
+\end{itemize}
 
 \section{Einfügen von Bildern}\label{section:bilder}
 
-    % Einfügen einer Grafik
-    \begin{figure}[htb]
-        % Zentrierung
-        \centering
-        % Einfügen der Datei, mit angepasster Höhe
-        \includegraphics[height=5cm]{graphics/dhbw.png}
-        % Titel und Label der Grafik
-        \caption[Logo der DHBW]{Logo der DHBW.\footnotemark}
-        \label{abb:DHBWLogo}
-    \end{figure}
-    \footnotetext{Logo der DHBW}
+% Einfügen einer Grafik
+\begin{figure}[htb]
+    % Zentrierung
+    \centering
+    % Einfügen der Datei, mit angepasster Höhe
+    \includegraphics[height=5cm]{lib/graphics/dhbw.png}
+    % Titel und Label der Grafik
+    \caption[Logo der DHBW]{Logo der DHBW.\footnotemark}
+    \label{abb:DHBWLogo}
+\end{figure}
+\footnotetext{Logo der DHBW}
 
 \section{Einfügen von Tabellen}\label{section:tabellen}
 
@@ -39,7 +39,7 @@ Hier findet Ihr einen Überblick über die wichtigsten \LaTeX\ Befehle.
     % Ausrichtung (l, c, r) und vertikale Trennung (|)
     \begin{tabular}{lcr}
         % Beginn einer neuen Spalte mit & und einer neuen Zeile mit \\
-        links & Mitte & rechts \\
+        links  & Mitte  & rechts \\
         % Einfügen einer horizontalen Linie
         \hline
         Muster & Muster & Muster \\
@@ -54,12 +54,12 @@ Hier findet Ihr einen Überblick über die wichtigsten \LaTeX\ Befehle.
 % Definition, welche Programmiersprache verwendet wird
 \lstset{language=Java}
 
-    In \LaTeX\ kann auch Source Code referenziert werden.
+In \LaTeX\ kann auch Source Code referenziert werden.
 
-    Dieser kann direkt in das Dokument geschrieben werden:
+Dieser kann direkt in das Dokument geschrieben werden:
 
-    % Beginn des Code Blocks
-    \begin{lstlisting}
+% Beginn des Code Blocks
+\begin{lstlisting}
         if(1 > 0) {
         System.out.println("OK"); 
         } else {
@@ -79,20 +79,20 @@ Fußnoten können auf verschiedene Weisen in \LaTeX\ eingefügt werden.
 
 Hier wird nur eine beispielhafte Variante gezeigt!
 
-    \begin{itemize}
-        \item 'Direktes Zitate'\footnote{\cite[S. 114ff.]{Mayring2002}}
-        \item Indirektes Zitate\footnote{Vgl. \cite[S. 114ff.]{Mayring2002}}
-        \item Sekundäres indirektes Zitat\footnote{Vgl. \cite[S. 114ff.]{Mayring2002} nach \cite{Endres}}
-        \item Einzelnes sekundäres Zitat\footcite[Vgl.][S.1]{W3SchoolUnderscore}
-    \end{itemize}
+\begin{itemize}
+    \item 'Direktes Zitate'\footnote{\cite[S. 114ff.]{Mayring2002}}
+    \item Indirektes Zitate\footnote{Vgl. \cite[S. 114ff.]{Mayring2002}}
+    \item Sekundäres indirektes Zitat\footnote{Vgl. \cite[S. 114ff.]{Mayring2002} nach \cite{Endres}}
+    \item Einzelnes sekundäres Zitat\footcite[Vgl.][S.1]{W3SchoolUnderscore}
+\end{itemize}
 
 \section{Einfügen von Referenzen}\label{section:referenzen}
 
 Auf Inhalte kann referenziert werden. Hierzu müssen diese Inhalte nur mit einem Label versehen werden.
 
-    \begin{itemize}
-        \item Bilder\ref{abb:DHBWLogo}
-        \item Kapitel\ref{chapter:cheat_sheet}
-        \item Abschnitte\ref{section:bilder}
-    \end{itemize}
+\begin{itemize}
+    \item Bilder\ref{abb:DHBWLogo}
+    \item Kapitel\ref{chapter:cheat_sheet}
+    \item Abschnitte\ref{section:bilder}
+\end{itemize}
 

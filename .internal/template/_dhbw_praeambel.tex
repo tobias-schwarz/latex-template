@@ -35,11 +35,11 @@
 
 \usepackage[                % Biblatex
   backend=biber,
-  bibstyle=_dhbw_authoryear,maxbibnames=99,
+  bibstyle=.internal/template/_dhbw_authoryear,maxbibnames=99,
   citestyle=authoryear,
   uniquename=true, useprefix=true,
   bibencoding=utf8]{biblatex}
-\input{template/_dhbw_biblatex-config.tex} % mit DHBW-spezifischen Einstellungen
+\input{.internal/template/_dhbw_biblatex-config.tex} % mit DHBW-spezifischen Einstellungen
 
 \usepackage{hyperref}       % URL-Formatierung, klickbare Verweise
 
@@ -93,7 +93,7 @@
 \counterwithout{footnote}{chapter}
 
 \usepackage[automark]{scrlayer-scrpage}
-\input{template/_dhbw_kopfzeilen.tex}		 % für schöne Kopfzeilen 
+\input{.internal/template/_dhbw_kopfzeilen.tex}		 % für schöne Kopfzeilen 
 
 \usepackage{textcomp}            % erlaubt EUR-Zeichen in Eingabedatei
 \usepackage{eurosym}             % offizielles EUR-Symbol in Ausgabe
