@@ -3,79 +3,79 @@
 % \usepackage{showframe} % nur für Kontrolle der Ränder 
 
 %%% Präambel einbinden (mit Festlegungen gemäß DHBW-Vorgaben) %%%
-\input{template/_dhbw_praeambel.tex}
+\input{.internal/template/_dhbw_praeambel.tex}
 
 %%% Name der eigenen Literatur-Datenbank %%%
-\bibliography{bibliography/bibliography.bib}
+\bibliography{lib/bibliography/bibliography.bib}
 
 \begin{document}
-    
-    %%% Deckblatt einbinden %%% 
-    \input{deckblatt.tex}
 
-    %%% Umstellung der Seiten-Nummerierung auf i, ii, iii ... %%%
-    \pagenumbering{Roman} 
+%%% Deckblatt einbinden %%% 
+\input{src/deckblatt.tex}
 
-    %%% Abstract einbinden (optionale Kurzfassung Ihrer Arbeit) %%%
-    % \input{abstract.tex}
-    % \cleardoublepage
+%%% Umstellung der Seiten-Nummerierung auf i, ii, iii ... %%%
+\pagenumbering{Roman}
 
-    \begin{spacing}{1}
+%%% Abstract einbinden (optionale Kurzfassung Ihrer Arbeit) %%%
+% \input{src/abstract.tex}
+% \cleardoublepage
 
-        %%% Inhaltsverzeichnis %%%
-        \tableofcontents
-        \clearpage
-        
-        %%% Abkürzungsverzeichnis %%%
-        \input{tables/abkuerzungen.tex}
-        \clearpage
+\begin{spacing}{1}
 
-        \thispagestyle{kapitelkopfzeile}
-
-        %%% Abbildungsverzeichnis %%%
-        \listoffigures
-        \phantomsection
-        
-        %%% Einfügen des Abbildungsverzeichnisses in das Inhaltsverzeichnis %%%
-        \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-        \clearpage
-
-        %%% Tabellenverzeichnis %%%
-        \listoftables
-        \phantomsection
-        
-        %%% Einfügen des Tabellenverzeichnisses in das Inhaltsverzeichnis %%%
-        \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-        \cleardoublepage
-    
-    \end{spacing}
-
-    %%% Umstellung der Seiten-Nummerierung auf 1, 2, 3 ... %%%
-    \pagenumbering{arabic}
-
-    %%% Beginn des eigentlichen Inhalts %%%
-    % Empfehlung: strukturieren Sie Ihren Text in einzelnen Dateien und binden Sie diese hier mit   \input{main_part/dateiname.tex} ein
-
-    % Cheat Sheet mit einem Überblick über die wichtigsten Befehle
-    \input{cheat_sheet.tex}
+    %%% Inhaltsverzeichnis %%%
+    \tableofcontents
     \clearpage
 
-    % Beispieldateien
-    % \input{examples/einleitung.tex}
-    % \blinddocument
-    % \input{examples/text_mit_zitaten.tex}
-    % \input{examples/abbildungen_und_tabellen.tex}
+    %%% Abkürzungsverzeichnis %%%
+    \input{lib/tables/abkuerzungen.tex}
+    \clearpage
 
-    %%% Ende des eigentlichen Inhalts %%%
+    \thispagestyle{kapitelkopfzeile}
 
-    %%% Beginn des Anhangs %%%
-    \input{appendix/appendix.tex}
+    %%% Abbildungsverzeichnis %%%
+    \listoffigures
+    \phantomsection
 
-    %%% Quellenverzeichnisse %%%
-    \literaturverzeichnis
+    %%% Einfügen des Abbildungsverzeichnisses in das Inhaltsverzeichnis %%%
+    \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+    \clearpage
+
+    %%% Tabellenverzeichnis %%%
+    \listoftables
+    \phantomsection
+
+    %%% Einfügen des Tabellenverzeichnisses in das Inhaltsverzeichnis %%%
+    \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
     \cleardoublepage
 
-    %%% Erklärung %%%
-    \input{template/_dhbw_erklaerung.tex}
+\end{spacing}
+
+%%% Umstellung der Seiten-Nummerierung auf 1, 2, 3 ... %%%
+\pagenumbering{arabic}
+
+%%% Beginn des eigentlichen Inhalts %%%
+% Empfehlung: strukturieren Sie Ihren Text in einzelnen Dateien und binden Sie diese hier mit   \input{main_part/dateiname.tex} ein
+
+% Cheat Sheet mit einem Überblick über die wichtigsten Befehle
+\input{examples/cheat_sheet.tex}
+\clearpage
+
+% Beispieldateien
+% \input{examples/einleitung.tex}
+% \blinddocument
+% \input{examples/text_mit_zitaten.tex}
+% \input{examples/abbildungen_und_tabellen.tex}
+
+%%% Ende des eigentlichen Inhalts %%%
+
+%%% Beginn des Anhangs %%%
+\input{src/appendix/appendix.tex}
+
+%%% Quellenverzeichnisse %%%
+\literaturverzeichnis
+\cleardoublepage
+
+%%% Erklärung %%%
+\input{.internal/template/_dhbw_erklaerung.tex}
 
 \end{document}
