@@ -102,26 +102,6 @@
 \usepackage{scrhack}             % stellt Kompatibilität zw. KOMA-Script
 % (scrreprt) und anderen Paketen her
 
-%% Replaces \{_} url codes in the .bib files to ensure correct underscore usage inside urls
-% \DeclareSourcemap{
-%     \maps[datatype=bibtex]{
-%         \map{
-%             \step[
-%                 fieldsource=url,
-%                 match={\\\{_\}},
-%                 replace={_}
-%             ]
-%         }
-%         \map{
-%             \step[
-%                 fieldsource=url,
-%                 match={\{\\_\}},
-%                 replace={_}
-%             ]
-%         }
-%     }
-% }
-
 % Anpassung der Abstände bei Kapitelüberschriften
 % (betrifft auch Inhalts-, Abbildungs- und Tabellenverzeichnis)
 \renewcommand*\chapterheadstartvskip{\vspace*{-\topskip}}
