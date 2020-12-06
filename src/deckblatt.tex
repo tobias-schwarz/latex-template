@@ -1,5 +1,7 @@
 \input{src/deckblatt_values.tex}
 
+\usepackage{ifthen}
+
 % Support command for generating the gender conform advisor term.
 \newcommand{\genderedAdvisor}[1]{
     \ifthenelse{\equal{#1}{m}}
