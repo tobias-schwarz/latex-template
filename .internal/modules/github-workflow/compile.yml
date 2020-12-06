@@ -1,0 +1,28 @@
+name: Compile LaTeX PDF
+on: [ push ]
+jobs:
+  compile:
+    name: Compile LaTeX to PDF
+    runs-on: ubuntu-latest
+    container: aergus/latex
+    steps:
+      # Checkout the repository code
+      - name: Checkout the repository code
+        uses: actions/checkout@v1
+
+      # Create the output directory
+      - name: Create output directory
+        run: mkdir -p ./output
+
+      # Compile the main file. This uses the latexmk binary provided through the aergus container
+      - name: Compile the main file
+        run: shell_escape=t latexmk -pdf -jobname=./output/build main.tex;
+
+      # Copy and upload the output file into the artifact storage of the job
+      - name: Copy compiled output pdf
+        run: cp output/build.pdf main.pdf
+      - name: Upload compiled pdf file as artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: main
+          path: main.pdf

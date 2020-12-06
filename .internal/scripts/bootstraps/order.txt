@@ -1,0 +1,15 @@
+bootstrapAuthor
+bootstrapPaperType
+bootstrapPaperTitle
+bootstrapPaperSubtitle
+bootstrapPaperDueDate
+bootstrapFaculty
+bootstrapMajor
+bootstrapCourseID
+bootstrapCompanyName
+bootstrapCompanyAdvisorDetails
+bootstrapCompanyAdvisorPosition
+bootstrapCompanyAdvisorGender
+bootstrapUniversityAdvisorDetails
+bootstrapUniversityAdvisorPosition
+bootstrapPaperConfidential

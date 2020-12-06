@@ -1,15 +1,15 @@
 % Support command for generating the gender conform advisor term.
 \newcommand{\genderedAdvisor}[1]{
-        \ifthenelse{\equal{#1}{m}}
-        {Betreuer}
-        {\ifthenelse{\equal{#1}{f}}{Betreuerin}{Betreuungsperson}}
+    \ifthenelse{\equal{#1}{m}}
+    {Betreuer}
+    {\ifthenelse{\equal{#1}{f}}{Betreuerin}{Betreuungsperson}}
 }
 
 % Support command to generate the gender conform advisor term including an article.
 \newcommand{\genderedAdvisorArticle}[1]{
-        \ifthenelse{\equal{#1}{m}}
-        {des Betreuers}
-        {\ifthenelse{\equal{#1}{f}}{der Betreuerin}{der Betreuungsperson}}
+    \ifthenelse{\equal{#1}{m}}
+    {des Betreuers}
+    {\ifthenelse{\equal{#1}{f}}{der Betreuerin}{der Betreuungsperson}}
 }
 
 \thispagestyle{empty}
@@ -35,7 +35,7 @@
                 \vspace{1cm}
 
                 % Datum festlegen
-                vorgelegt am \bootstrapDueDate
+                vorgelegt am \bootstrapPaperDueDate
 
                 \vspace{15mm}
 
@@ -84,12 +84,14 @@
 % falls ein Vertraulichkeitsvermerk erforderlich ist,
 % die Kommentarzeichen in den nachfolgenden Zeilen entfernen:
 
-%\begin{center}
-%\small
-%\textbf{Vertraulichkeitsvermerk}:
-%Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen \\
-%Personen außerhalb des Prüfungs- und Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung des Dualen Partners vorliegt. 
-%\end{center}
+\ifthenelse{\equal{\bootstrapPaperConfidential}{y}}
+{\begin{center}
+\small
+\textbf{Vertraulichkeitsvermerk}:
+Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen \\
+Personen außerhalb des Prüfungs- und Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung des Dualen Partners vorliegt.
+\end{center}}
+{}
 
 % Meta-Daten für PDF-Datei basierend auf obigen Angaben
 \hypersetup{pdftitle={\bootstrapPaperTitle}}

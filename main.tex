@@ -1,5 +1,5 @@
 % Grundlegende Dokumenteneigenschaften gemäß DHBW-Vorgaben
-\documentclass[a4paper,fontsize=11pt,oneside,parskip=half,headings=normal]{scrreprt} 
+\documentclass[a4paper,fontsize=11pt,oneside,parskip=half,headings=normal]{scrreprt}
 % \usepackage{showframe} % nur für Kontrolle der Ränder 
 
 %%% Präambel einbinden (mit Festlegungen gemäß DHBW-Vorgaben) %%%
@@ -13,8 +13,10 @@
 
 \begin{document}
 
-%%% Deckblatt einbinden %%% 
-\input{lib/template/_dhbw_deckblatt.tex}
+%%% Deckblatt einbinden %%%
+\ifthenelse{\equal{\configIncludeTitlePage}{true}}{
+  \input{lib/template/_dhbw_deckblatt.tex}
+}{}
 
 %%% Umstellung der Seiten-Nummerierung auf i, ii, iii ... %%%
 \pagenumbering{Roman}
@@ -26,31 +28,30 @@
 \begin{spacing}{1}
 
   %%% Inhaltsverzeichnis %%%
-  \tableofcontents
-  \clearpage
+  \ifthenelse{\equal{\configIncludeTableOfContents}{true}}{
+    \tableofcontents\clearpage
+  }{}
 
   %%% Abkürzungsverzeichnis %%%
-  \input{lib/tables/abkuerzungen.tex}
-  \clearpage
+  \ifthenelse{\equal{\configIncludeAbbreviations}{true}}{
+    \input{lib/tables/abkuerzungen.tex}\clearpage
+  }{}
 
   \thispagestyle{kapitelkopfzeile}
 
   %%% Abbildungsverzeichnis %%%
-  \listoffigures
-  \phantomsection
-
   %%% Einfügen des Abbildungsverzeichnisses in das Inhaltsverzeichnis %%%
-  \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-  \clearpage
+  \ifthenelse{\equal{\configIncludeListOfFigures}{true}}{
+    \listoffigures\phantomsection
+    \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}\clearpage
+  }{}
 
   %%% Tabellenverzeichnis %%%
-  \listoftables
-  \phantomsection
-
   %%% Einfügen des Tabellenverzeichnisses in das Inhaltsverzeichnis %%%
-  \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-  \cleardoublepage
-
+  \ifthenelse{\equal{\configIncludeListOfTables}{true}}{
+    \listoftables\phantomsection
+    \addcontentsline{toc}{chapter}{Tabellenverzeichnis}\cleardoublepage
+  }{}
 \end{spacing}
 
 %%% Umstellung der Seiten-Nummerierung auf 1, 2, 3 ... %%%
@@ -72,13 +73,18 @@
 %%% Ende des eigentlichen Inhalts %%%
 
 %%% Beginn des Anhangs %%%
-\input{src/appendix/appendix.tex}
+\ifthenelse{\equal{\configIncludeAppendix}{true}}{
+  \input{src/appendix/appendix.tex}
+}{}
 
 %%% Quellenverzeichnisse %%%
-\literaturverzeichnis
-\cleardoublepage
+\ifthenelse{\equal{\configIncludeBib}{true}}{
+  \literaturverzeichnis\cleardoublepage
+}{}
 
 %%% Erklärung %%%
-\input{lib/template/_dhbw_erklaerung.tex}
+\ifthenelse{\equal{\configIncludeAuthorStatement}{true}}{
+  \input{lib/template/_dhbw_erklaerung.tex}
+}{}
 
 \end{document}

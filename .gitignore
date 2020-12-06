@@ -21,3 +21,7 @@
 
 # IntelliJ
 .idea/
+*.iml
+
+# Default output directory
+output/

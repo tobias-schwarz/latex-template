@@ -41,3 +41,17 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 
 - Hier werden die Konfigurationen für die Arbeit (Title, Kurs, etc.) angepasst.
 - Entsprechende Beispiele und Definition/Erklärung sind in der Datei verfügbar.
+
+# One-Line Installer
+
+Das Template kann zusätzlich auch mit einem oneliner aus einer [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) oder
+[ZSH](https://en.wikipedia.org/wiki/Z_shell) heraus installiert werden. Hierfür muss lediglich der Command:
+
+```shell
+bash <(curl https://raw.githubusercontent.com/tobias-schwarz/latex-template/feature/module-core/.internal/scripts/bootstrap.sh)
+```
+
+ausgeführt werden. Dieser Installer liefert hierfür direkt in der Shell Anweisungen zur Installation.
+
+> Der Installer generiert das Template in einem neu erzeugten Order, dieser muss so nicht angelegt werden.  
+> Zum Beispiel: Die Ausführung des obigen Commands in `~/workspace` würde das Template in `~/workspace/my-template-name` erzeugen.
