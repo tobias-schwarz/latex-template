@@ -1,90 +1,90 @@
-% Typ der Arbeit (für Deckblatt und ehrenwörtliche Erklärung) - bitte Zutreffendes auswählen
-% \newcommand{\typMeinerArbeit}{1. Projektarbeit} 
-% \newcommand{\typMeinerArbeit}{2. Projektarbeit} 
-% \newcommand{\typMeinerArbeit}{Seminararbeit} 
-% \newcommand{\typMeinerArbeit}{Bachelorarbeit} 
-\newcommand{\typMeinerArbeit}{Benutzerdefinierter Typ}
+\input{src/deckblatt_values.tex}
 
-% Thema der Arbeit (für ehrenwörtliche Erklärung, ohne Umbrüche)
-\newcommand{\themaMeinerArbeit}{Mein Titel}
+% Support command for generating the gender conform advisor term.
+\newcommand{\genderedAdvisor}[1]{
+    \ifthenelse{\equal{#1}{m}}
+    {Betreuer}
+    {\ifthenelse{\equal{#1}{f}}{Betreuerin}{Betreuungsperson}}
+}
 
-% Ggf. Untertitel der Arbeit (falls dies nicht benötigt wird, das zweite Klammerpaar leer lassen, nicht das Kommando löschen!)
-\newcommand{\unterThemaMeinerArbeit}{Untertitel}
-
-% Vorname, Name der Autorin/des Autors (für Titelseite und Metadaten)
-\newcommand{\meinName}{Vorname Nachname}
+% Support command to generate the gender conform advisor term including an article.
+\newcommand{\genderedAdvisorArticle}[1]{
+    \ifthenelse{\equal{#1}{m}}
+    {des Betreuers}
+    {\ifthenelse{\equal{#1}{f}}{der Betreuerin}{der Betreuungsperson}}
+}
 
 \thispagestyle{empty}
 
 \begin{spacing}{1}
-\begin{center}	
-~\vspace{0mm}
+    \begin{center}
+        ~\vspace{0mm}
 
 % Titel der Arbeit
-{\sffamily
-    \LARGE  
-    \textbf{\themaMeinerArbeit}
-    
-    \bigskip
-    \textbf{\unterThemaMeinerArbeit}
-}
+        {\sffamily
+        \LARGE
+        \textbf{\bootstrapPaperTitle}
 
-\vspace{15mm}
+        \bigskip
+        \textbf{\bootstrapPaperSubtitle}
+        }
+
+        \vspace{15mm}
 
 % Typ der Arbeit
-{\Large \typMeinerArbeit}
+        {\Large \bootstrapPaperType}
 
-\vspace{1cm}
+        \vspace{1cm}
 
 % Datum festlegen
-vorgelegt am \today 
+        vorgelegt am\bootstrapDueDate
 
-\vspace{15mm}
+        \vspace{15mm}
 
 % Fakultät festlegen
-Fakultät Wirtschaft
-\medskip
+        Fakultät\bootstrapFaculty
+        \medskip
 
 % Studiengang festlegen
-Studiengang Wirtschaftsinformatik
-\medskip
+        Studiengang\bootstrapMajor
+        \medskip
 
 % Kurs festlegen
-Kurs ... 
+        Kurs\bootstrapClass
 
-\vspace{10mm}
+        \vspace{10mm}
 
-von
+        von
 
-\vspace{10mm}
+        \vspace{10mm}
 
 % Autor/in/en/innen festlegen
-{\large\textsc{\meinName}}
+        {\large\textsc{\bootstrapAuthor}}
 
-\vspace{10mm}
-\end{center}
+        \vspace{10mm}
+    \end{center}
 
-\vfill
+    \vfill
+
 
 % HIER EDITIEREN: Name des Unternehmens, Name der Betreuerin/des Betreuers
-\begin{tabular}{ll}
-Betreuer*in in der Ausbildungsstätte: & DHBW Stuttgart: \\
-\hspace{0.4\linewidth} & \\
-Name des Unternehmens & Titel, Vorname und Nachname \\
-Titel, Vorname und Nachname der Betreuerin & der/des wissenschaftlichen Betreuerin/Prüferin \\
-Funktion der Betreuerin/des Betreuers \\
-\\
-Unterschrift der Betreuerin/des Betreuers \\
-\end{tabular}
+    \begin{tabular}{ll}
+        \genderedSupport{\bootstrapCompanyAdvisorGender}in der Ausbildungsstätte: & DHBW Stuttgart:                     \\
+        \hspace{0.4\linewidth}                                                    &                                     \\
+        \bootstrapCompanyName                                                     & \bootstrapUniversityAdvisorDetails  \\
+        \bootstrapCompanyAdvisorDetails                                           & \bootstrapUniversityAdvisorPosition \\
+        \bootstrapCompanyAdvisorPosition \\
+        Unterschrift\genderedSupportArticle{\bootstrapCompanyAdvisorGender} \\
+    \end{tabular}
 
 
-\vspace{1cm}
+    \vspace{1cm}
 %(etwas Platz für die Unterschrift der Betreuerin/des Betreuers aus der Ausbildungsstätte)
 \end{spacing}
 
 % falls ein Vertraulichkeitsvermerk erforderlich ist,
 % die Kommentarzeichen in den nachfolgenden Zeilen entfernen:
- 
+
 %\begin{center}
 %\small
 %\textbf{Vertraulichkeitsvermerk}:
@@ -93,6 +93,6 @@ Unterschrift der Betreuerin/des Betreuers \\
 %\end{center}
 
 % Meta-Daten für PDF-Datei basierend auf obigen Angaben
-\hypersetup{pdftitle={\themaMeinerArbeit}}
-\hypersetup{pdfauthor={\meinName}}
-\hypersetup{pdfsubject={\typMeinerArbeit\ DHBW Stuttgart \the\year}}
+\hypersetup{pdftitle={\bootstrapPaperTitle}}
+\hypersetup{pdfauthor={\bootstrapAuthor}}
+\hypersetup{pdfsubject={\bootstrapPaperType\ DHBW Stuttgart \the\year}}
