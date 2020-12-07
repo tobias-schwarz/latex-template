@@ -34,5 +34,3 @@ fi
 
 cp output/build.pdf master.pdf
 echo -en "${GREEN}Done${RESET}!\n"
-
-

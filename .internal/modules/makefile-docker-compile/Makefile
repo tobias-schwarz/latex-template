@@ -1,3 +1,3 @@
 # Compile the project locally
 docker:
-	@OUTPUT_DIR="output" .internal/scripts/compile-docker.sh
+	@OUTPUT_DIR="output" ./scripts/compile-docker.sh

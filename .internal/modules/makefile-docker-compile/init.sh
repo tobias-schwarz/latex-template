@@ -5,7 +5,7 @@ export MODULE_DESCRIPTION="Installs the makefile goal 'docker', which uses a loc
 compilation inside a docker container."
 
 function install() {
-    mkdir -p scripts && cp "$2/scripts/compile-docker.sh" .internal/scripts/compile-docker.sh
+    mkdir -p scripts && cp "$2/scripts/compile-docker.sh" ./scripts/compile-docker.sh
     cat "$2/Makefile" >> Makefile
     return 0
 }

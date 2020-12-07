@@ -4,7 +4,9 @@ export MODULE_DESCRIPTION="Installs the makefile goals 'compile', which uses the
 project, and 'clean' to clean the local build directories."
 
 function install() {
-    mkdir -p scripts && cp "$2/scripts/compile-local.sh" .internal/scripts/compile-local.sh
+    mkdir -p scripts
+    cp "$2/scripts/compile-local.sh" ./scripts/compile-local.sh
+    cp "$2/scripts/fmt-bib.sh" ./scripts/fmt-bib.sh
     cat "$2/Makefile" >> Makefile
     return 0
 }

@@ -4,6 +4,7 @@
 # Hard coded variables
 LATEX_TEMPLATE_HTTPS_GIT=https://github.com/tobias-schwarz/latex-template.git
 GIT_DEFAULT_BRANCH="feature/module-core"
+BOOTSTRAP_FOLDER="./.internal/scripts/bootstraps"
 
 # Colors
 RESET=$(tput sgr0 2>/dev/null)
@@ -19,6 +20,8 @@ BOLD=$(tput bold 2>/dev/null)
 BLUE=$(tput setaf 4 2>/dev/null)
 GOLD=$(tput setaf 11 2>/dev/null)
 
+export DHBW_BOOTSTRAP_LOG=$(mktemp /tmp/dhbw-latex-bootstrap.XXXXXX)
+
 # Utility methods
 function cecho() {
   output_string=""
@@ -28,7 +31,27 @@ function cecho() {
   echo -en "$output_string"
 }
 
-function _inline_replace() { if ! sed -i -E '' "$1" "$2" &>/dev/null; then sed -i -E "$1" "$2"; fi; }
+function _inline_replace() { if ! sed -i -E '' "$1" "$2" &>>"${DHBW_BOOTSTRAP_LOG}"; then sed -i -E "$1" "$2"; fi; }
+function requireGitConfig() { if ! git config "$1" &>>"${DHBW_BOOTSTRAP_LOG}"; then
+  NEW_VALUE=""
+  cecho "You do not have your git ${LIGHT_RED}$1" " configured. Please enter it right now: "
+  read -r NEW_VALUE
+  git config "$1" "${NEW_VALUE}"
+fi; }
+
+# Cursor utility
+function _reset_line_counter() { PRINTED_LINES=0; }
+function _increase_line_counter() { PRINTED_LINES=$((PRINTED_LINES + $1)); }
+function _rollback_line_counter() {
+  for ((i = 0; i < $((PRINTED_LINES)); i++)); do echo -en "\033[1A\033[K"; done
+  if [ "${PRINTED_LINE:=0}" -gt 0 ]; then echo -en "\033[1A"; fi
+}
+
+function _setup_bootstrap_vars() {
+  BOOTSTRAP_QUESTION=""
+  BOOTSTRAP_FORMAT=""
+  BOOTSTRAP_EXAMPLES=""
+}
 
 function cecho_yes_no() {
   cecho "$@"
@@ -40,30 +63,35 @@ function cecho_yes_no() {
   return 1
 }
 
+function _separator_line() {
+  for ((i = 0; i < $1; ++i)); do
+    printf "━"
+  done
+}
+
 function new_topic() {
   local TOTAL_PRINTING_CHARACTERS=$(($(tput cols) * 2 / 5))
   local TOTAL_SEPARATORS=$((TOTAL_PRINTING_CHARACTERS - ${#2}))
   local SEPARATOR_AMOUNT=$((TOTAL_SEPARATORS / 2))
 
   printf "%s" "${BOLD}"
-  for ((i = 0; i < SEPARATOR_AMOUNT; ++i)); do
-    printf "━"
-  done
+  _separator_line "$SEPARATOR_AMOUNT"
   cecho "$1$2"
   printf "%s" "${BOLD}"
-  for ((i = 0; i < SEPARATOR_AMOUNT; ++i)); do
-    printf "━"
-  done
+  _separator_line "$SEPARATOR_AMOUNT"
   if [[ ! $((TOTAL_SEPARATORS % 2)) -eq 0 ]]; then
     printf "━"
   fi
   echo -e "${RESET}"
+
+  echo "Started $2" >>"${DHBW_BOOTSTRAP_LOG}"
 }
 
+clear # Clear screen
 new_topic "${AQUA}" "[DHBW LaTeX Template Generator]"
 
 # Checking for the required tools on the machine, mostly git
-if ! hash git &>/dev/null; then
+if ! hash git &>>"${DHBW_BOOTSTRAP_LOG}"; then
   cecho "Could not find ${LIGHT_RED}git" " on your machine\n"
   exit 1
 fi
@@ -94,34 +122,78 @@ while ! (cecho_yes_no "Do you want to use ${AQUA}${BU}${PROJECT_NAME}" " as your
 done
 
 new_topic "${GOLD}" "[Cloning the project]"
-cecho "${GOLD}Cloning" " the latest latex template to ${GOLD}${BU}${PROJECT_NAME}...\n"
+cecho "${GOLD}Cloning" " the latest latex template to ${GOLD}${BU}${PROJECT_NAME}${RESET}..."
 
-if ! git clone ${LATEX_TEMPLATE_HTTPS_GIT} "${PROJECT_NAME}"; then
+if ! git clone ${LATEX_TEMPLATE_HTTPS_GIT} "${PROJECT_NAME}" &>>"${DHBW_BOOTSTRAP_LOG}"; then
   cecho "${LIGHT_RED}Could not clone the repository! Please report this error if you cannot solve it!\n"
   exit 1
 fi
 
 cd "${PROJECT_NAME}" || exit 1
-git remote add upstream ${LATEX_TEMPLATE_HTTPS_GIT}
+git remote add upstream ${LATEX_TEMPLATE_HTTPS_GIT} &>>"${DHBW_BOOTSTRAP_LOG}"
+git fetch upstream -p &>>"${DHBW_BOOTSTRAP_LOG}"
 if [[ -z ${REMOTE_GIT_REPOSITORY} ]]; then
-  git remote remove origin
+  git remote remove origin &>>"${DHBW_BOOTSTRAP_LOG}"
 else
-  git remote set-url origin ${REMOTE_GIT_REPOSITORY}
+  git remote set-url origin ${REMOTE_GIT_REPOSITORY} &>>"${DHBW_BOOTSTRAP_LOG}"
+  git fetch origin -p &>>"${DHBW_BOOTSTRAP_LOG}"
+fi
+
+if ! git rebase "upstream/${GIT_DEFAULT_BRANCH}" &>>"${DHBW_BOOTSTRAP_LOG}"; then
+  cecho "${LIGHT_RED}Could not rebase module branch. Please report this error if you cannot solve it!\n"
+  exit 1
 fi
 cecho "${GOLD}${BU}Done!\n"
+
+# Bootstrap everything
+new_topic "${BLUE}" "[Bootstrap Project]"
+cecho "The " "${BLUE}bootstrap" " process will define the general context of this paper.\n"
+cecho "For example, your name, the paper title etc.\n"
+
+BOOTSTRAP_ORDER=$(cat "${BOOTSTRAP_FOLDER}/order.txt")
+
+_reset_line_counter
+for bootstrap_name in ${BOOTSTRAP_ORDER}; do
+  _rollback_line_counter
+  _reset_line_counter
+  file_path="${BOOTSTRAP_FOLDER}/${bootstrap_name}.sh"
+
+  _setup_bootstrap_vars
+  source "$file_path"
+
+  if [ ! ${#BOOTSTRAP_EXAMPLES[@]} -eq 0 ]; then
+    cecho "${GRAY}Examples:\n" && _increase_line_counter 1
+    for example in "${BOOTSTRAP_EXAMPLES[@]}"; do
+      cecho "${GRAY} - ${example}\n" && _increase_line_counter 1
+    done
+  fi
+  if [ -n "$BOOTSTRAP_FORMAT" ]; then
+    cecho "${GRAY}Format: $BOOTSTRAP_FORMAT\n" && _increase_line_counter 1
+  fi
+  cecho "${BLUE}${BOLD}${BOOTSTRAP_QUESTION}: " && _increase_line_counter 1
+  read -r bootstrap_answer
+  bootstrap_answer=$(printf "%q" "${bootstrap_answer}")
+
+  sed_replace_string=$(
+    printf "s/%s/%s/g" \
+      "\\\\newcommand\{\\\\$bootstrap_name\}\{.*\}" \
+      "\\\\newcommand{\\\\$bootstrap_name\}\{$bootstrap_answer\}"
+  )
+  _inline_replace "$sed_replace_string" "src/config.tex"
+done
+
+# Commit bootstrap
+requireGitConfig "user.name"
+requireGitConfig "user.email"
+git add . &>>"${DHBW_BOOTSTRAP_LOG}"
+git commit -am "Bootstrap the project configuration" &>>"${DHBW_BOOTSTRAP_LOG}"
 
 # Install modules
 new_topic "${GREEN}" "[Modules]"
 if cecho_yes_no "Do you want to install any extra ${GREEN}modules" " ${DARK_GREEN}[y/n]" "? "; then
-  cecho "${GREEN}Pulling module branch...\n"
-  git fetch upstream "${GIT_DEFAULT_BRANCH}" >/dev/null
-  git merge -q "upstream/${GIT_DEFAULT_BRANCH}" >/dev/null
-  cecho "${GREEN}Done!\n"
   ./.internal/scripts/install-modules.sh
 fi
 
-
-
-new_topic "${BLUE}" "[Bootstrap Project]"
-cecho "The " "${BLUE}bootstrap" " process will define the general context of this paper.\n"
-cecho "For example, your name, the paper title etc.\n"
+new_topic "${GREEN}" "Finished bootstrap"
+cecho "${GRAY}The debug logs are available at ${DHBW_BOOTSTRAP_LOG}\n"
+cecho "${GREEN}Enjoy working on your paper\n"

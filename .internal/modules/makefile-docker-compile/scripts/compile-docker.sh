@@ -16,7 +16,7 @@ if ! docker ps &>/dev/null; then
 fi
 
 directory="$(
-    cd "$(dirname "$0")/../.." || exit
+    cd "$(dirname "$0")/.." || exit
     pwd -P
 )" # Fetches the parents parent directory of the scripts directory (which should be the project root)
 
