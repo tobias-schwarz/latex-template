@@ -5,13 +5,16 @@
 %%% Präambel einbinden (mit Festlegungen gemäß DHBW-Vorgaben) %%%
 \input{lib/template/_dhbw_praeambel.tex}
 
+%% Einlesen der Konfigurationdatei
+\input{src/config.tex}
+
 %%% Name der eigenen Literatur-Datenbank %%%
 \bibliography{lib/bibliography.bib}
 
 \begin{document}
 
 %%% Deckblatt einbinden %%% 
-\input{src/deckblatt.tex}
+\input{lib/template/_dhbw_deckblatt.tex}
 
 %%% Umstellung der Seiten-Nummerierung auf i, ii, iii ... %%%
 \pagenumbering{Roman}

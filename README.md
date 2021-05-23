@@ -37,11 +37,7 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 - Der Anhang ist bereits vorbereitet. Hier können dann eigene Inhalten nach dem Muster in der Datei (Datei: `src/appendix/appendix.tex` bearbeiten) hinzugefügt werden.
 - Es sollte zur Abgabe darauf geachtet werden dass die Dateien aus dem Ordner `examples`, die `release_notes.tex` und ggf. weitere beispielhafte Inhalte auskommentiert oder gelöscht werden.
 
-### src/deckblatt.tex
+### src/config.tex
 
-- Hier muss zunächst der Typ der Arbeit ausgewählt werden. Dazu muss einer der voreingestellten Typen auskommentiert werden oder es kann ein benutzerdefinierter Typ festgelegt werden
-- Es müssen außerdem ein Thema und ein Unterthema eingetragen werden. Sollte kein Unterthema benötigt werden, muss die Bezeichnung für das Unterthema leer gelassen werden (Die Zeile darf nicht komplett gelöscht werden, weil hier Abhängigkeiten bestehen)
-- Ein/e Autor\*in muss ebenfalls eingetragen werden
-- Unter Umständen muss das Datum der Abgabe geändert werden (Standardmäßig wird das aktuelle Datum verwendet)
-- Der Kurs, Name der/des Betreuers/in und der/des Studiengangsleiters/in müssen angepasst werden.
-- Sollte ein Sperrvermerk benötigt werden, müssen die entsprechenden Zeilen einfach auskommentiert werden.
+- Hier werden die Konfigurationen für die Arbeit (Title, Kurs, etc.) angepasst.
+- Entsprechende Beispiele und Definition/Erklärung sind in der Datei verfügbar.
