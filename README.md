@@ -27,7 +27,7 @@ Nachfolgend sind Tools aufgelistet, welche vom Team erfolgreich gestestet und em
 
 # Notwendige Anpassungen
 
-### master.tex
+### main.tex
 
 - Einbinden der eigenen Literaturdatenbank (Datei: `lib/bibliography.bib` ersetzen)
 - (Optional) Einbinden eines Abstracts. Hierzu müssen die zwei Zeilen unter dem Kommentar "Einbinden eines Abstracts (optional)" einkommentiert werden. Anschließend kann das Abstract in die bereits vorbereitete Datei (Datei: `src/abstract.tex` bearbeiten) eingefügt werden.
