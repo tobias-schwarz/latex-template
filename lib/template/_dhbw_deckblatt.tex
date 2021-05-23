@@ -1,0 +1,97 @@
+% Support command for generating the gender conform advisor term.
+\newcommand{\genderedAdvisor}[1]{
+        \ifthenelse{\equal{#1}{m}}
+        {Betreuer}
+        {\ifthenelse{\equal{#1}{f}}{Betreuerin}{Betreuungsperson}}
+}
+
+% Support command to generate the gender conform advisor term including an article.
+\newcommand{\genderedAdvisorArticle}[1]{
+        \ifthenelse{\equal{#1}{m}}
+        {des Betreuers}
+        {\ifthenelse{\equal{#1}{f}}{der Betreuerin}{der Betreuungsperson}}
+}
+
+\thispagestyle{empty}
+
+\begin{spacing}{1}
+        \begin{center}
+                ~\vspace{0mm}
+
+                % Titel der Arbeit
+                {\sffamily
+                        \LARGE
+                        \textbf{\bootstrapPaperTitle}
+
+                        \bigskip
+                        \textbf{\bootstrapPaperSubtitle}
+                }
+
+                \vspace{15mm}
+
+                % Typ der Arbeit
+                {\Large \bootstrapPaperType}
+
+                \vspace{1cm}
+
+                % Datum festlegen
+                vorgelegt am \bootstrapDueDate
+
+                \vspace{15mm}
+
+                % Fakultät festlegen
+                Fakultät \bootstrapFaculty
+                \medskip
+
+                % Studiengang festlegen
+                Studiengang \bootstrapMajor
+                \medskip
+
+                % Kurs festlegen
+                Kurs \bootstrapCourseID
+
+                \vspace{10mm}
+
+                von
+
+                \vspace{10mm}
+
+                % Autor/in/en/innen festlegen
+                {\large\textsc{\bootstrapAuthor}}
+
+                \vspace{10mm}
+        \end{center}
+
+        \vfill
+
+
+        % HIER EDITIEREN: Name des Unternehmens, Name der Betreuerin/des Betreuers
+        \begin{tabular}{ll}
+                \genderedAdvisor{\bootstrapCompanyAdvisorGender}in der Ausbildungsstätte: & DHBW Stuttgart:                     \\
+                \hspace{0.4\linewidth}                                                    &                                     \\
+                \bootstrapCompanyName                                                     & \bootstrapUniversityAdvisorDetails  \\
+                \bootstrapCompanyAdvisorDetails                                           & \bootstrapUniversityAdvisorPosition \\
+                \bootstrapCompanyAdvisorPosition                                                                                \\
+                \\
+                Unterschrift\genderedAdvisorArticle{\bootstrapCompanyAdvisorGender}                                             \\
+        \end{tabular}
+
+
+        \vspace{1cm}
+        %(etwas Platz für die Unterschrift der Betreuerin/des Betreuers aus der Ausbildungsstätte)
+\end{spacing}
+
+% falls ein Vertraulichkeitsvermerk erforderlich ist,
+% die Kommentarzeichen in den nachfolgenden Zeilen entfernen:
+
+%\begin{center}
+%\small
+%\textbf{Vertraulichkeitsvermerk}:
+%Der Inhalt dieser Arbeit darf weder als Ganzes noch in Auszügen \\
+%Personen außerhalb des Prüfungs- und Evaluationsverfahrens zugänglich gemacht werden, sofern keine anders lautende Genehmigung des Dualen Partners vorliegt. 
+%\end{center}
+
+% Meta-Daten für PDF-Datei basierend auf obigen Angaben
+\hypersetup{pdftitle={\bootstrapPaperTitle}}
+\hypersetup{pdfauthor={\bootstrapAuthor}}
+\hypersetup{pdfsubject={\bootstrapPaperType\ DHBW Stuttgart \the\year}}

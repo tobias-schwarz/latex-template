@@ -9,9 +9,9 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          root_file: master.tex
+          root_file: main.tex
       - name: Upload LaTeX Artifact
         uses: actions/upload-artifact@v1
         with:
           name: output
-          path: master.pdf
+          path: main.pdf
